@@ -18,7 +18,7 @@ description = "Flexible Layouting Library"
 name = "nlay"
 readme = "README.md"
 requires-python = ">=3.10"
-version = "1.4.0"
+version = "1.4.1"
 
 [project.urls]
 "Bug Tracker" = "https://github.com/MikuAuahDark/nlay-py/issues"

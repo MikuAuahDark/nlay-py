@@ -551,8 +551,9 @@ class GridCellIterator:
         if self.index >= self.len:
             raise StopIteration
 
-        row = self.index % self.context.rows
-        col = self.index // self.context.cols
+        # row * self.cols + col
+        row = self.index // self.context.cols
+        col = self.index % self.context.cols
         self.index = self.index + 1
         return row, col, self.context.get(row, col)
 
@@ -607,11 +608,11 @@ class Grid:
             self.update_size()
 
     def get(self, row: int, col: int):
-        index = row * self.cols + col
+        index = col * self.rows + row
         constraint = self.list[index]
 
         if constraint is None:
-            constraint = GridCellConstraint(self, row, col)
+            constraint = GridCellConstraint(self, col, row)
             self.list[index] = constraint
 
         return constraint
